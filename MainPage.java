@@ -18,13 +18,11 @@ public class MainPage extends JFrame implements ActionListener {
 	JPanel leftSide;
 	JPanel rightSide;
 	JButton theTrain;
-	JLabel numOfPlayers;
-	JTextField numOfPlText;
 	JTextField name;
 	JButton addPlayer;
 	
 	int i = 0;
-//	int howManyPlayers = Integer.parseInt(numOfPlText.getText());
+
 	String[] players = new String[5];
 	
 	
@@ -102,14 +100,9 @@ public class MainPage extends JFrame implements ActionListener {
 		//rightSide
 		
 		
-		numOfPlayers = new JLabel("Set the number of players");
-		rightSide.add(numOfPlayers);
-		numOfPlayers.setBounds(0, 20, 150, 30);
+	
 		
-		
-		numOfPlText = new JTextField();
-		rightSide.add(numOfPlText);
-		numOfPlText.setBounds(160,20,30,30);
+	
 		
 		
 		
@@ -126,6 +119,7 @@ public class MainPage extends JFrame implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+		
 				String playerName = name.getText();
 				players[i] = playerName;
 				i++;

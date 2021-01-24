@@ -41,6 +41,8 @@ public class TheTrain extends JFrame implements ActionListener {
 	JLabel theEnd;
 	JButton again;
 	JButton endGame;
+	JLabel numOfShotsTxt;
+	JLabel numOfShots;
 	int row1 = (int)(Math.random() * 4);
 	int col1 = (int)(Math.random() * 13);
 	int row2 = (int)(Math.random() * 4);
@@ -62,7 +64,7 @@ public class TheTrain extends JFrame implements ActionListener {
 	int row55 = (int)(Math.random() * 4);
 	int col55 = (int)(Math.random() * 13);
 	boolean lost = false;
-	
+	int shotCounter = 0;
 	
 	String[][] deck = {
 			{"2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣"},
@@ -153,10 +155,7 @@ public class TheTrain extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ncard2.setText(deck[row22][col22]);
-				if(lost == true) {
-					
-				}
-				else if(col22 <= col2) {
+			 if(col22 <= col2) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -174,10 +173,8 @@ public class TheTrain extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ncard2.setText(deck[row22][col22]);
-				if(lost == true) {
-					
-				}
-				else if(col22 >= col2) {
+				
+				if(col22 >= col2) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -193,12 +190,10 @@ public class TheTrain extends JFrame implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				card3.setText(deck[row3][row3]);
+				card3.setText(deck[row3][col3]);
 				ncard3.setText(deck[row33][col33]);
-				if(lost == true) {
-					
-				}
-				else if(col33 <= col3) {
+				
+				if(col33 <= col3) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -216,12 +211,10 @@ public class TheTrain extends JFrame implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				card3.setText(deck[row3][row3]);
+				card3.setText(deck[row3][col3]);
 				ncard3.setText(deck[row33][col33]);
-				if(lost == true) {
-					
-				}
-				else if(col33 >= col3) {
+				
+				if(col33 >= col3) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -238,10 +231,8 @@ public class TheTrain extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ncard4.setText(deck[row44][col44]);
-				if(lost == true) {
-					
-				}
-				else if(col44 <= col4) {
+				
+				if(col44 <= col4) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -258,10 +249,8 @@ public class TheTrain extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ncard4.setText(deck[row44][col44]);
-				if(lost == true) {
-					
-				}
-				else if(col44 >= col4) {
+				
+				 if(col44 >= col4) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
@@ -276,18 +265,17 @@ public class TheTrain extends JFrame implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				card5.setText(deck[row5][row5]);
+				card5.setText(deck[row5][col5]);
 				ncard5.setText(deck[row55][col55]);
-				if(lost == true) {
-					
-				}
-				else if(col55 <= col5) {
+				
+				if(col55 <= col5) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
 				}
 				else if(col55 > col5) {
 					endGame.setVisible(true);
+					theEnd.setText("YOU WIN!");
 				}
 			}});
 		
@@ -298,18 +286,17 @@ public class TheTrain extends JFrame implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				card5.setText(deck[row5][row55]);
+				card5.setText(deck[row5][col5]);
 				ncard5.setText(deck[row55][col55]);
-				if(lost == true) {
-					
-				}
-				else if(col55 >= col5) {
+				
+				if(col55 >= col5) {
 					theEnd.setText("You lose");
 					again.setVisible(true);
 					lost = true;
 				}
 				else if(col55 < col5) {
 					endGame.setVisible(true);
+					theEnd.setText("YOU WIN!");
 				}
 				
 			}});
@@ -414,6 +401,9 @@ public class TheTrain extends JFrame implements ActionListener {
 				 again.setVisible(false);
 				 theEnd.setText("");
 				 lost = false;
+				 shotCounter++;
+				 numOfShots.setText(String.valueOf(shotCounter));
+				 
 			}});
 		
 		
@@ -430,8 +420,13 @@ public class TheTrain extends JFrame implements ActionListener {
 			}});
 		
 		
+		numOfShotsTxt = new JLabel("Number of shots for now: ");
+		rest.add(numOfShotsTxt);
+		numOfShotsTxt.setBounds(400, 0 , 200, 80 );
 		
-		
+		numOfShots = new JLabel();
+		rest.add(numOfShots);
+		numOfShots.setBounds(550, 0 , 60,80);
 		
 		
 		setVisible(true);

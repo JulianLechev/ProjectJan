@@ -44,6 +44,8 @@ public class TheTrainPrep extends JFrame  {
 	JButton go;
 	JLabel forNowOnTrainTxt;
 	JLabel forNowOnTrain;
+	JLabel mostShotsDisplayed;
+	
 	
 	int row1 = (int)(Math.random() * 4);
 	int col1 = (int)(Math.random() * 13);
@@ -128,7 +130,7 @@ public class TheTrainPrep extends JFrame  {
 					numOfShots++;
 				}
 				
-				shotCounter.setText(String.valueOf(numOfShots));
+				shotCounter.setText(String.valueOf(numOfShots) );
 			}});
 		
 		
@@ -216,6 +218,7 @@ public class TheTrainPrep extends JFrame  {
 				playerCounter++;
 				playerName.setText(player);
 				forNowOnTrain.setText(plWithMostShots);
+				mostShotsDisplayed.setText(String.valueOf(mostShots) + " shots");
 				
 				
 			}});
@@ -373,6 +376,10 @@ public class TheTrainPrep extends JFrame  {
 		forNowOnTrain = new JLabel("yeaa");
 		rightButtons.add(forNowOnTrain);
 		forNowOnTrain.setBounds(7, 275, 100, 40);
+		
+		mostShotsDisplayed = new JLabel();
+		rightButtons.add(mostShotsDisplayed);
+		mostShotsDisplayed.setBounds(50, 275, 100,40);
 		
 	
 		
