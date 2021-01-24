@@ -1,4 +1,5 @@
 package CaptainJackSparrow;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -11,7 +12,7 @@ import javax.swing.JTextField;
 public class MainPage extends JFrame implements ActionListener {
 	
 	
-	
+	  public static final Color VERY_LIGHT_Blue= new Color(51,204,255);
 	String addPlayerActionCommand = "addPlayer";
 	String trainActionCommand = "openNewWindow";
 	JPanel main;
@@ -50,17 +51,20 @@ public class MainPage extends JFrame implements ActionListener {
 		main = new JPanel();
 		super.add(main);	
 		main.setLayout(new BoxLayout(main, BoxLayout.X_AXIS));
+		main.setBackground(VERY_LIGHT_Blue);
 
 		
 		
 		leftSide = new JPanel();
 		main.add(leftSide);
 		leftSide.setLayout(new BoxLayout(leftSide,BoxLayout.Y_AXIS));
+		leftSide.setBackground(VERY_LIGHT_Blue);
 		
 		
 		rightSide = new JPanel();
 		main.add(rightSide);
 		rightSide.setLayout(null);
+		rightSide.setBackground(VERY_LIGHT_Blue);
 		
 		
 		//leftSIde
@@ -69,11 +73,16 @@ public class MainPage extends JFrame implements ActionListener {
 		leftSide.add(theTrain);
 		theTrain.addActionListener(this); 
 		theTrain.setActionCommand(trainActionCommand);
+		theTrain.setBackground(Color.GREEN);
 		
 		
 		JButton cardGame = new JButton("Card Game");
+		cardGame.setBackground(Color.red);
 		JButton roulette = new JButton("Roulette");
+		roulette.setBackground(Color.red);
 		JButton commingSoon = new JButton ("Comming soon");
+		commingSoon.setBackground(Color.red);
+		
 		
 		
 		
@@ -115,7 +124,7 @@ public class MainPage extends JFrame implements ActionListener {
 				
 			}});
 		addPlayer.setActionCommand(addPlayerActionCommand);
-		
+		addPlayer.setBackground(Color.GREEN);
 		
 		setVisible(true);
 	}

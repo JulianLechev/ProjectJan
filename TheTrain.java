@@ -1,4 +1,5 @@
 package CaptainJackSparrow;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +14,7 @@ import javax.swing.SwingConstants;
 public class TheTrain extends JFrame implements ActionListener {
 
 	JPanel main;
-	JPanel HoL;
+	JPanel HoL; //Higher or Lower
 	JPanel card;
 	JPanel newCard;
 	JPanel rest;
@@ -65,7 +66,9 @@ public class TheTrain extends JFrame implements ActionListener {
 	int col55 = (int)(Math.random() * 13);
 	boolean lost = false;
 	int shotCounter = 0;
-	
+	public static final Color LIGHT_Green = new Color(0,255,91);
+	public static final Color LIGHT_Blue = new Color(81,153,255);
+	public static final Color LIGHT_Red = new Color(255,102,102);
 	String[][] deck = {
 			{"2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣"},
 			{"2♢", "3♢", "4♢", "5♢", "6♢", "7♢", "8♢", "9♢", "10♢", "J♢", "Q♢", "K♢", "A♢"},
@@ -83,23 +86,27 @@ public class TheTrain extends JFrame implements ActionListener {
 		main = new JPanel();
 		add(main);
 		main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-		
+		main.setBackground(LIGHT_Green);
 	
 		HoL = new JPanel();
 		main.add(HoL);
 		HoL.setLayout(null);
+		HoL.setBackground(LIGHT_Green);
 		
 		card = new JPanel();
 		main.add(card);
 		card.setLayout(null);
+		card.setBackground(LIGHT_Green);
 		
 		 newCard = new JPanel();
 		main.add(newCard);
 		newCard.setLayout(null);
+		newCard.setBackground(LIGHT_Green);
 		
 		 rest = new JPanel();
 		main.add(rest);
 		rest.setLayout(null);
+		rest.setBackground(LIGHT_Green);
 		
 		
 		//higher or lower
@@ -112,6 +119,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 higher1 = new JButton("↑");
 		HoL.add(higher1);
 		higher1.setBounds(5,40,40,20);
+		higher1.setBackground(LIGHT_Blue);
 		higher1.addActionListener(new ActionListener() {
 
 			@Override
@@ -131,6 +139,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 lower1 = new JButton("↓");
 		HoL.add(lower1);
 		lower1.setBounds(50,40,40,20);
+		lower1.setBackground(LIGHT_Red);
 		lower1.addActionListener(new ActionListener() {
 
 			@Override
@@ -149,6 +158,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 higher2 = new JButton("↑");
 		HoL.add(higher2);
 		higher2.setBounds(130,40,40,20);
+		higher2.setBackground(LIGHT_Blue);
 		higher2.addActionListener(new ActionListener() {
 
 			@Override
@@ -167,6 +177,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 lower2 = new JButton("↓");
 		HoL.add(lower2);
 		lower2.setBounds(175,40,40,20);
+		lower2.setBackground(LIGHT_Red);
 		lower2.addActionListener(new ActionListener() {
 
 			@Override
@@ -183,9 +194,13 @@ public class TheTrain extends JFrame implements ActionListener {
 			}});
 		
 		
+	//Картите на позиции 3 и 5 са обърнати с лице надолу и се разкриват след като играчът е взел решение
+		
+		
 		 higher3 = new JButton("↑");
 		HoL.add(higher3);
 		higher3.setBounds(255,40,40,20);
+		higher3.setBackground(LIGHT_Blue);
 		higher3.addActionListener(new ActionListener() {
 
 			@Override
@@ -207,6 +222,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 lower3 = new JButton("↓");
 		HoL.add(lower3);
 		lower3.setBounds(295,40,40,20);
+		lower3.setBackground(LIGHT_Red);
 		lower3.addActionListener(new ActionListener() {
 			
 			@Override
@@ -225,6 +241,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 higher4 = new JButton("↑");
 		HoL.add(higher4);
 		higher4.setBounds(375,40,40,20);
+		higher4.setBackground(LIGHT_Blue);
 		higher4.addActionListener(new ActionListener() {
 
 			@Override
@@ -243,6 +260,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 lower4 = new JButton("↓");
 		HoL.add(lower4);
 		lower4.setBounds(415,40,40,20);
+		lower4.setBackground(LIGHT_Red);
 		lower4.addActionListener(new ActionListener() {
 
 			@Override
@@ -261,6 +279,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 higher5 = new JButton("↑");
 		HoL.add(higher5);
 		higher5.setBounds(495,40,40,20);
+		higher5.setBackground(LIGHT_Blue);
 		higher5.addActionListener(new ActionListener() {
 
 			@Override
@@ -282,6 +301,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		 lower5 = new JButton("↓");
 		HoL.add(lower5);
 		lower5.setBounds(535,40,40,20);
+		lower5.setBackground(LIGHT_Red);
 		lower5.addActionListener(new ActionListener() {
 
 			@Override
@@ -363,6 +383,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		rest.add(again);
 		again.setBounds(170,0,150,80);
 		again.setVisible(false);
+		again.setBackground(Color.red);
 		again.addActionListener(new ActionListener() {
 
 			@Override
@@ -411,6 +432,7 @@ public class TheTrain extends JFrame implements ActionListener {
 		rest.add(endGame);
 		endGame.setBounds(170,0,150,80);
 		endGame.setVisible(false);
+		endGame.setBackground(Color.white);
 		endGame.addActionListener(new ActionListener() {
 
 			@Override

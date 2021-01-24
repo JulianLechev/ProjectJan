@@ -1,4 +1,5 @@
 package CaptainJackSparrow;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,11 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 public class TheTrainPrep extends JFrame  {
 
+	
+
+	
+	
+	
 	JPanel main;
 	JPanel leftButtons;
 	JPanel rightButtons;
@@ -31,11 +37,11 @@ public class TheTrainPrep extends JFrame  {
 	JTextField cardColour;
 	JLabel shotCounterText;
 	JLabel shotCounter;
-	JLabel cardBnW;
-	JLabel cardHnL;
+	JLabel cardBnW; //black or red
+	JLabel cardHnL; // higher or lower
 	JLabel cardInOrOut;
 	JLabel cardGuess;
-	JLabel actionBnW;
+	JLabel actionBnW; 
 	JLabel actionHnL;
 	JLabel actionInOrOut;
 	JLabel actionGuess;
@@ -46,7 +52,9 @@ public class TheTrainPrep extends JFrame  {
 	JLabel forNowOnTrain;
 	JLabel mostShotsDisplayed;
 	
-	
+	public static final Color VERY_LIGHT_Blue = MainPage.VERY_LIGHT_Blue;
+	public static final Color DARK_GREEN = new Color(0,153,0) ;
+	 
 	int row1 = (int)(Math.random() * 4);
 	int col1 = (int)(Math.random() * 13);
 	int row2 = (int)(Math.random() * 4);
@@ -92,31 +100,36 @@ public class TheTrainPrep extends JFrame  {
 		main.setLayout(null);
 		add(main);
 		main.setLayout(new BoxLayout(main, BoxLayout.X_AXIS));
+		main.setBackground(VERY_LIGHT_Blue);
 		
 		leftButtons = new JPanel();
 		main.add(leftButtons);
 		leftButtons.setLayout(null);
-		
+		leftButtons.setBackground(VERY_LIGHT_Blue);
 		
 		
 		rightButtons = new JPanel();
 		main.add(rightButtons);
 		rightButtons.setLayout(null);
+		rightButtons.setBackground(VERY_LIGHT_Blue);
 		
 		
 		cards = new JPanel();
 		main.add(cards);
 		cards.setLayout(null);
+		cards.setBackground(VERY_LIGHT_Blue);
 		
 		action = new JPanel();
 		main.add(action);
 		action.setLayout(null);
+		action.setBackground(VERY_LIGHT_Blue);
 		
 		//left buttons and so on
 		
 		red = new JButton("Red");
 		leftButtons.add(red);
 		red.setBounds(5,5,100,20);
+		red.setBackground(Color.green);
 		red.addActionListener(new ActionListener() {
 			
 			@Override
@@ -138,6 +151,7 @@ public class TheTrainPrep extends JFrame  {
 		higher = new JButton("Higher");
 		leftButtons.add(higher);
 		higher.setBounds(5,35,100,20);
+		higher.setBackground(Color.green);
 		higher.addActionListener(new ActionListener() {
 
 			@Override
@@ -157,6 +171,7 @@ public class TheTrainPrep extends JFrame  {
 		inbetween = new JButton("Inbetween");
 		leftButtons.add(inbetween);
 		inbetween.setBounds(5,65,100,20);
+		inbetween.setBackground(Color.green);
 		inbetween.addActionListener(new ActionListener() {
 
 			@Override
@@ -177,9 +192,10 @@ public class TheTrainPrep extends JFrame  {
 		leftButtons.add(cardNumber);
 		cardNumber.setBounds(77,95,30,30);
 		
-		nextPlayer = new JButton("Next player/\nThe Train");
+		nextPlayer = new JButton("Next player");
 		leftButtons.add(nextPlayer);
 		nextPlayer.setBounds(5,135,100,60);
+		nextPlayer.setBackground(DARK_GREEN);
 		nextPlayer.addActionListener(new ActionListener() {
 
 			@Override
@@ -227,6 +243,7 @@ public class TheTrainPrep extends JFrame  {
 		nextFrame = new JButton("All aboard!");
 		leftButtons.add(nextFrame);
 		nextFrame.setBounds(5,205,100,60);
+		nextFrame.setBackground(DARK_GREEN);
 		nextFrame.addActionListener(new ActionListener() {
 
 			@Override
@@ -256,6 +273,7 @@ public class TheTrainPrep extends JFrame  {
 		black = new JButton("Black");
 		rightButtons.add(black);
 		black.setBounds(0,5,100,20);
+		black.setBackground(Color.green);
 		black.addActionListener(new ActionListener() {
 
 			@Override
@@ -275,6 +293,7 @@ public class TheTrainPrep extends JFrame  {
 		lower = new JButton("Lower");
 		rightButtons.add(lower);
 		lower.setBounds(0,35,100,20);
+		lower.setBackground(Color.green);
 		lower.addActionListener(new ActionListener() {
 
 			@Override
@@ -293,6 +312,7 @@ public class TheTrainPrep extends JFrame  {
 		outside = new JButton("Outside");
 		rightButtons.add(outside);
 		outside.setBounds(0,65,100,20);
+		outside.setBackground(Color.green);
 		outside.addActionListener(new ActionListener() {
 
 			@Override
@@ -316,6 +336,7 @@ public class TheTrainPrep extends JFrame  {
 		go = new JButton("Go");
 		rightButtons.add(go);
 		go.setBounds(40, 95, 60, 30);
+		go.setBackground(Color.green);
 		go.addActionListener(new ActionListener() {
 
 			@Override
