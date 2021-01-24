@@ -13,7 +13,7 @@ public class MainPage extends JFrame implements ActionListener {
 	
 	
 	String addPlayerActionCommand = "addPlayer";
-	String trainActionCommand = "Chakataka";
+	String trainActionCommand = "openNewWindow";
 	JPanel main;
 	JPanel leftSide;
 	JPanel rightSide;
@@ -23,7 +23,7 @@ public class MainPage extends JFrame implements ActionListener {
 	
 	int i = 0;
 
-	String[] players = new String[5];
+	String[] players = new String[10];
 	
 	
 	
@@ -42,7 +42,7 @@ public class MainPage extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
-		for(int l = 0; l<5; l++) {
+		for(int l = 0; l<10; l++) {
 			
 			players[l] = new String();
 		}
@@ -72,19 +72,6 @@ public class MainPage extends JFrame implements ActionListener {
 		
 		
 		JButton cardGame = new JButton("Card Game");
-		cardGame.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				for(int k = 0; k<5	; k++) {
-					System.out.println(players[k]);
-				}
-				
-			}
-			
-		}); 
-		
-		
 		JButton roulette = new JButton("Roulette");
 		JButton commingSoon = new JButton ("Comming soon");
 		
@@ -155,12 +142,6 @@ public class MainPage extends JFrame implements ActionListener {
 			
 		}
 		
-	
-	
-	public String getPlayer(int k) {
-		return players[k];
-		
-	}
 	
 
 	
