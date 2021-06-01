@@ -1,4 +1,5 @@
-package CaptainJackSparrow;
+package encaraMessi;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-public class MainPage extends JFrame implements ActionListener {
+public class MainPage extends JFrame {
 	
 	
 	  public static final Color VERY_LIGHT_Blue= new Color(51,204,255);
@@ -22,10 +23,11 @@ public class MainPage extends JFrame implements ActionListener {
 	JTextField name;
 	JButton addPlayer;
 	
+	
 	int i = 0;
 
 	String[] players = new String[10];
-	
+
 	
 	
 	private static void GUI() {
@@ -38,6 +40,10 @@ public class MainPage extends JFrame implements ActionListener {
 	
 	
 	public MainPage() {
+		
+		
+		
+		
 		 super("The Drinking Game App");
 		setSize(450,200);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,13 +77,28 @@ public class MainPage extends JFrame implements ActionListener {
 		
 		theTrain = new JButton("The Train");
 		leftSide.add(theTrain);
-		theTrain.addActionListener(this); 
-		theTrain.setActionCommand(trainActionCommand);
+//		theTrain.addActionListener(this); 
+//		theTrain.setActionCommand(trainActionCommand);
 		theTrain.setBackground(Color.GREEN);
+		theTrain.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+//				TheTrainPrep ak = new TheTrainPrep(players);
+			}});
 		
+		JButton cardGame = new JButton("Belote");
+		cardGame.setBackground(Color.green);
+		cardGame.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Belote bel = new Belote();
+				
+			}});
 		
-		JButton cardGame = new JButton("Card Game");
-		cardGame.setBackground(Color.red);
 		JButton roulette = new JButton("Roulette");
 		roulette.setBackground(Color.red);
 		JButton commingSoon = new JButton ("Comming soon");
@@ -141,16 +162,24 @@ public class MainPage extends JFrame implements ActionListener {
 
 
 
-	@Override
-	
-		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-		setVisible(false);
-			TheTrainPrep ak = new TheTrainPrep(players);
-	
-			
-		}
-		
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+
+
+
+//	@Override
+//	
+//		public void actionPerformed(ActionEvent arg0) {
+//			// TODO Auto-generated method stub
+//		setVisible(false);
+//			TheTrainPrep ak = new TheTrainPrep(players);
+//	
+//			
+//		}
+//		
 	
 
 	
