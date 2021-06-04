@@ -13,6 +13,7 @@ import java.util.Stack;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Belote extends JFrame {
@@ -20,6 +21,11 @@ public class Belote extends JFrame {
 	JPanel main;
 	JButton test;
 	JButton begin;
+	JLabel southCall;
+	JLabel eastCall;
+	JLabel northCall;
+	JLabel westCall;
+	
 	String[] playerNames;
 	Player[] players = new Player[4];
 int score1 = 0; int score2 = 0;
@@ -40,6 +46,11 @@ int score1 = 0; int score2 = 0;
 	int col3 = (int) (Math.random() * 13);
 	int row4 = (int) (Math.random() * 4);
 	int col4 = (int) (Math.random() * 13);
+	
+//	String[] player1Hand = new String[8];
+//	String[] player2Hand = new String[8];
+//	String[] player3Hand = new String[8];
+//	String[] player4Hand = new String[8];
 
 	public static final Color LIGHT_Green = new Color(0, 255, 91);
 	public static final Color LIGHT_Blue = new Color(81, 153, 255);
@@ -50,6 +61,7 @@ int score1 = 0; int score2 = 0;
 		super("Belote");
 		setSize(800, 800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		Stack<String> teste = new Stack<String>();
 		 for(int i = 0; i < 32; i++){
 		 teste.add(deck[i]);
@@ -58,12 +70,19 @@ int score1 = 0; int score2 = 0;
 		for (int i = 0; i < 4; i++) {
 			players[i] = new Player(String.valueOf(i));
 		}
-		// Player p1 = new Player("Go6o");
+	
 
 		main = new JPanel();
 		add(main);
 		main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
 		main.setBackground(LIGHT_Green);
+		
+		southCall = new JLabel(" ");
+		southCall.setBounds(350,550,100,50);
+		southCall.setBackground(Color.BLUE);
+		main.add(southCall);
+
+//		200, 625, 400, 100
 
 		begin = new JButton();
 		main.add(begin);
@@ -78,15 +97,45 @@ int score1 = 0; int score2 = 0;
 		
 		
 		
-		while(score1 < 151 && score2< 151){
-			
-			while(!players[1].isReady && !players[2].isReady && !players[3].isReady && !players[0].isReady ){
-				Collections.shuffle(teste);
+//		while(score1 < 151 && score2< 151){
+//			
+//			while(!players[1].isReady && !players[2].isReady && !players[3].isReady && !players[0].isReady ){
+//				Collections.shuffle(teste);
+				for(int i = 0; i <20; i++){
+					players[i/5].giveCard(teste.pop());
+//					if(i < 5){
+//						 players[] = teste.pop();
+//						// players[0].setHand(player1Hand);
+//						 continue;
+//						 }
+//					else if(i > 4 && i<10){
+//						 player2Hand[i] = teste.pop();
+//						 players[1].setHand(player2Hand);
+//						 continue;
+//					}
+//					else if(i > 9 && i<15){
+//						 player3Hand[i] = teste.pop();
+//						 players[2].setHand(player3Hand);
+//						 continue;
+//					}
+//					else if(i > 14 && i<20){
+//						 player4Hand[i] = teste.pop();
+//						 players[3].setHand(player4Hand);
+//						 continue;
+//					}
+				}
 				
 				
+				for(int i = 0; i < 4; i++){
+					
+					System.out.println(players[i].getHand());
+					
+				}
 				
-				
-			}
+//				
+//				
+//				
+//			}
 			
 			
 			
@@ -98,7 +147,7 @@ int score1 = 0; int score2 = 0;
 				else{players[i].setPlace(0);}
 			}
 			
-		}
+//		}
 		
 		
 		
