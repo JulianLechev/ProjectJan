@@ -22,11 +22,18 @@ public class Belote extends JFrame {
 	JButton test;
 	JButton begin;
 	JLabel southCall;
-	JLabel eastCall;
-	JLabel northCall;
-	JLabel westCall;
-	
+//	JLabel eastCall;
+//	JLabel northCall;
+//	JLabel westCall;
+	JButton callClubs;
+	JButton callDiamonds;
+	JButton callHearts;
+	JButton callSpades;
+	JButton callNoTrumps;
+	JButton callAllTrumps;
+	JButton pass;
 	String[] playerNames;
+	int readyCounter = 0;
 	Player[] players = new Player[4];
 int score1 = 0; int score2 = 0;
 	 String[] deck = 
@@ -46,6 +53,7 @@ int score1 = 0; int score2 = 0;
 	int col3 = (int) (Math.random() * 13);
 	int row4 = (int) (Math.random() * 4);
 	int col4 = (int) (Math.random() * 13);
+	int callValue = 0;
 	
 //	String[] player1Hand = new String[8];
 //	String[] player2Hand = new String[8];
@@ -74,27 +82,118 @@ int score1 = 0; int score2 = 0;
 
 		main = new JPanel();
 		add(main);
-		main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+		main.setLayout(null);
 		main.setBackground(LIGHT_Green);
 		
-		southCall = new JLabel(" ");
+		JLabel whatIsCalled = new JLabel("");
+		whatIsCalled.setBounds(10, 10, 100, 30);
+		main.add(whatIsCalled);
+		
+		
+		southCall = new JLabel("");
 		southCall.setBounds(350,550,100,50);
 		southCall.setBackground(Color.BLUE);
 		main.add(southCall);
+		
+		callClubs = new JButton("Clubs");
+		callClubs.setBounds(295, 300, 100, 30);
+		main.add(callClubs); 
+		callClubs.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue == 0){
+				callValue = 1;
+				whatIsCalled.setText("Clubs");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		callDiamonds = new JButton("Diamonds");
+		callDiamonds.setBounds(295, 340, 100, 30);
+		main.add(callDiamonds);
+		callDiamonds.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue < 2){
+				callValue = 2;
+				whatIsCalled.setText("Diamonds");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		callHearts = new JButton("Hearts");
+		callHearts.setBounds(405, 300, 100, 30);
+		main.add(callHearts);
+		callHearts.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue < 3){
+				callValue = 3;
+				whatIsCalled.setText("Hearts");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		callSpades = new JButton("Spades");
+		callSpades.setBounds(405, 340, 100, 30);
+		main.add(callSpades);
+		callSpades.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue < 4){
+				callValue = 4;
+				whatIsCalled.setText("Spades");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		callNoTrumps = new JButton("NT");
+		callNoTrumps.setBounds(295, 380, 100, 30);
+		main.add(callNoTrumps);
+		callNoTrumps.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue < 5){
+				callValue = 5;
+				whatIsCalled.setText("NT");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		callAllTrumps = new JButton("AT");
+		callAllTrumps.setBounds(405, 380, 100, 30);
+		main.add(callAllTrumps);
+		callAllTrumps.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(callValue < 6){
+				callValue = 6;
+				whatIsCalled.setText("AT");
+				readyCounter = 1;
+				}
+			}
+		});
+		
+		pass = new JButton("Pass");
+		pass.setBounds(295, 420, 210, 30);
+		main.add(pass);
+		pass.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				readyCounter +=1;
+				System.out.println(readyCounter);
+			}
+		});
+		
 
 //		200, 625, 400, 100
 
-		begin = new JButton();
-		main.add(begin);
-		begin.setBounds(499, 30, 300, 50);
-		begin.addActionListener(new ActionListener(){
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-			}});
-		
 		
 		
 //		while(score1 < 151 && score2< 151){
@@ -103,6 +202,7 @@ int score1 = 0; int score2 = 0;
 //				Collections.shuffle(teste);
 				for(int i = 0; i <20; i++){
 					players[i/5].giveCard(teste.pop());
+					
 //					if(i < 5){
 //						 players[] = teste.pop();
 //						// players[0].setHand(player1Hand);
@@ -123,6 +223,7 @@ int score1 = 0; int score2 = 0;
 //						 players[3].setHand(player4Hand);
 //						 continue;
 //					}
+					
 				}
 				
 				
@@ -145,6 +246,10 @@ int score1 = 0; int score2 = 0;
 				if(i != 3){
 				players[i].setPlace(i+=1);}
 				else{players[i].setPlace(0);}
+			}
+			
+			if(readyCounter >= 4){
+				callClubs.setVisible(false);
 			}
 			
 //		}

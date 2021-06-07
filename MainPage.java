@@ -22,7 +22,7 @@ public class MainPage extends JFrame {
 	JButton theTrain;
 	JTextField name;
 	JButton addPlayer;
-	
+
 	
 	int i = 0;
 

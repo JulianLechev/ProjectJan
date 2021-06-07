@@ -1,29 +1,35 @@
 package encaraMessi;
 
+import java.util.ArrayList;
+
 public class Player {
 	
 	
-	private int hand = 0;
+	private ArrayList<String> hand = new ArrayList<String>();
 	private int handScore = 0;
 	private int place = 0;
 	boolean isAI = false;
 	boolean isReady = false;
 	
 	public Player() {
-	
-		
-		
 	}
 
+public Player(String name){
+	
+	
+}
 
-
-	public int getHand() {
+	public  ArrayList<String> getHand() {
 		return hand;
 	}
+	
+	public void giveCard(String card){
+		hand.add(card);
+	}
 
 
 
-	public void setHand(int hand) {
+	public void setHand( ArrayList<String> hand) {
 		this.hand = hand;
 	}
 
